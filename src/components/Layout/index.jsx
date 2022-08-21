@@ -7,7 +7,7 @@ function Layout(props) {
     <S.Container>
       <S.MainTitle>{props.title}</S.MainTitle>
       <SelectMenu />
-      <S.CardArea> {props.children}</S.CardArea>
+      <S.CardArea>{props.children}</S.CardArea>
       <TabMenu />
     </S.Container>
   )
