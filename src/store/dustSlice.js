@@ -64,15 +64,12 @@ export const dustSlice = createSlice({
   },
   extraReducers: {
     [fetchData.pending]: (state) => {
-      console.log('Pending')
       return { ...state, isLoading: true }
     },
     [fetchData.fulfilled]: (state, { payload }) => {
-      console.log('Fetched Successfully!')
       return { ...state, dustDataList: payload, isLoading: false }
     },
     [fetchData.rejected]: (state) => {
-      console.log('Rejected')
       return { ...state, isLoading: false }
     },
   },
