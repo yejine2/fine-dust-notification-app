@@ -5,6 +5,7 @@ import {
 } from '../../store/dustSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
+import * as S from './style.js'
 
 import { SIDO_NAME } from '../../utils/constants'
 
@@ -25,23 +26,23 @@ function SelectMenu() {
   return (
     <>
       {location !== '/favorite-region' && (
-        <div>
-          <select onChange={onSidoNameChange}>
+        <S.SelectContainer>
+          <S.SelectItem onChange={onSidoNameChange}>
             <option>시도</option>
             {SIDO_NAME.map((sido) => (
               <option key={sido}>{sido}</option>
             ))}
-          </select>
+          </S.SelectItem>
 
           {location !== '/all-region' && (
-            <select onChange={onStationNameChange}>
+            <S.SelectItem onChange={onStationNameChange}>
               <option>시군구</option>
               {dustDataList.map((station) => (
                 <option key={station.stationName}>{station.stationName}</option>
               ))}
-            </select>
+            </S.SelectItem>
           )}
-        </div>
+        </S.SelectContainer>
       )}
     </>
   )
