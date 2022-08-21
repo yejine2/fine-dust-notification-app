@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AllRegions from './pages/AllRegions'
 import FavoriteRegion from './pages/FavoriteRegion'
 import MyRegion from './pages/MyRegion'
-import TabMenu from './components/TabMenu'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
         <Route path="/" element={<MyRegion />} />
         <Route path="/all-region" element={<AllRegions />} />
         <Route path="/favorite-region" element={<FavoriteRegion />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <TabMenu />
     </BrowserRouter>
   )
 }
