@@ -31,7 +31,6 @@ export const CardInfoWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin: 0;
 `
 export const CardValue = styled.p`
   font-size: 2.3rem;
@@ -43,7 +42,6 @@ export const CardSubText = styled.p`
 `
 export const CardInfoText = styled.p`
   font-size: 1rem;
-  margin: 0;
 `
 export const CardDateText = styled.p`
   position: absolute;
