@@ -78,6 +78,10 @@ export const dustSlice = createSlice({
   },
 })
 
-export const { setRegionHandler, favoriteRegionAddHandler } = dustSlice.actions
+export const {
+  setRegionHandler,
+  favoriteRegionAddHandler,
+  favoriteRegionRemoveHandler,
+} = dustSlice.actions
 export const getAlldustData = (state) => state.dust
 export const dustReducer = dustSlice.reducer
