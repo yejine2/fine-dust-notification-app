@@ -55,6 +55,12 @@ export const dustSlice = createSlice({
     favoriteRegionAddHandler(state, action) {
       state.favoriteRegion.push({ ...action.payload, isFavoriteRegion: true })
     },
+    // 즐겨찾기 장소 삭제
+    favoriteRegionRemoveHandler(state, action) {
+      state.favoriteRegion = state.favoriteRegion.filter(
+        (item) => item.stationName !== action.payload,
+      )
+    },
   },
   extraReducers: {
     [fetchData.pending]: (state) => {
