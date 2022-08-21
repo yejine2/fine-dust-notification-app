@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchData, getAlldustData } from '../store/dustSlice'
 import Card from '../components/Card'
-import SelectMenu from '../components/SelectMenu'
+import Layout from '../components/Layout'
+import Loader from '../components/Loader'
 
 function AllRegions() {
   const dispatch = useDispatch()
@@ -13,15 +14,15 @@ function AllRegions() {
   }, [dispatch])
 
   return (
-    <div>
-      <h2>전체 지역</h2>
-      <SelectMenu />
-      {isLoading ? (
-        <p>로딩중!</p>
-      ) : (
-        dustDataList.map((item) => <Card key={item.stationName} data={item} />)
-      )}
-    </div>
+    <>
+      <div>{isLoading ? <Loader /> : ''}</div>
+      <Layout title="전체 시도보기">
+        {dustDataList.length > 0 &&
+          dustDataList.map((item) => (
+            <Card key={item.stationName} data={item} />
+          ))}
+      </Layout>
+    </>
   )
 }
 
