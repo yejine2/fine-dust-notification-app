@@ -29,17 +29,19 @@ function SelectMenu() {
         <S.SelectContainer>
           <S.SelectItem onChange={onSidoNameChange}>
             <option>시도</option>
-            {SIDO_NAME.map((sido) => (
-              <option key={sido}>{sido}</option>
-            ))}
+            {SIDO_NAME &&
+              SIDO_NAME.map((sido) => <option key={sido}>{sido}</option>)}
           </S.SelectItem>
 
           {location !== '/all-region' && (
             <S.SelectItem onChange={onStationNameChange}>
               <option>시군구</option>
-              {dustDataList.map((station) => (
-                <option key={station.stationName}>{station.stationName}</option>
-              ))}
+              {dustDataList &&
+                dustDataList.map((station) => (
+                  <option key={station.stationName}>
+                    {station.stationName}
+                  </option>
+                ))}
             </S.SelectItem>
           )}
         </S.SelectContainer>
