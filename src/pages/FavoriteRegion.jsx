@@ -12,7 +12,8 @@ function FavoriteRegion() {
     <>
       <div>{isLoading ? <Loader /> : ''}</div>
       <Layout title="즐겨찾기">
-        {favoriteRegion.length > 0 &&
+        {favoriteRegion &&
+          favoriteRegion.length > 0 &&
           favoriteRegion.map((item) => (
             <Card
               key={item.stationName}

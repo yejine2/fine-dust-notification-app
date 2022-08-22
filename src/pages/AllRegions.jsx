@@ -17,7 +17,8 @@ function AllRegions() {
     <>
       <div>{isLoading ? <Loader /> : ''}</div>
       <Layout title="전체 시도보기">
-        {dustDataList.length > 0 &&
+        {dustDataList &&
+          dustDataList.length > 0 &&
           dustDataList.map((item) => (
             <Card key={item.stationName} data={item} />
           ))}
