@@ -33,8 +33,8 @@ export const fetchData = createAsyncThunk(
         params: { ...getParameters, sidoName },
       })
       return (
-        response.data.response.body.items &&
-        response.data.response.body.items.map((item) => {
+        response.data['response']['body']['items'] &&
+        response.data['response']['body']['items'].map((item) => {
           return { ...item, isFavoriteRegion: false }
         })
       )
