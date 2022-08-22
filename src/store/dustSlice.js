@@ -32,9 +32,12 @@ export const fetchData = createAsyncThunk(
       const response = await axios.get(BASE_URL, {
         params: { ...getParameters, sidoName },
       })
-      return response.data.response.body.items.map((item) => {
-        return { ...item, isFavoriteRegion: false }
-      })
+      return (
+        response &&
+        response.data.response.body.items.map((item) => {
+          return { ...item, isFavoriteRegion: false }
+        })
+      )
     } catch (error) {
       console.log(error)
     }
