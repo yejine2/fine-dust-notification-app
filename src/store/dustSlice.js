@@ -30,7 +30,7 @@ export const fetchData = createAsyncThunk(
   'dust/fetchData',
   async (sidoName) => {
     try {
-      const response = await axios.get(`${PROXY}${BASE_URL}`, {
+      const response = await axios.get(`${PROXY}/${BASE_URL}`, {
         params: { ...getParameters, sidoName },
       })
       return response.data['response']['body']['items']
