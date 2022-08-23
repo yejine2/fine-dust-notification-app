@@ -4,6 +4,7 @@ import qs from 'qs'
 
 const SERVICE_KEY = process.env.REACT_APP_SERVICE_KEY
 const BASE_URL = 'B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty'
+const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy'
 
 axios.defaults.paramsSerializer = (params) => {
   return qs.stringify(params, { encode: false })
@@ -29,7 +30,7 @@ export const fetchData = createAsyncThunk(
   'dust/fetchData',
   async (sidoName) => {
     try {
-      const response = await axios.get(BASE_URL, {
+      const response = await axios.get(`${PROXY}${BASE_URL}`, {
         params: { ...getParameters, sidoName },
       })
       return response.data['response']['body']['items']
