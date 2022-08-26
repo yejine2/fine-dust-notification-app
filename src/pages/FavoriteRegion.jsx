@@ -10,7 +10,7 @@ function FavoriteRegion() {
 
   return (
     <>
-      <div>{isLoading ? <Loader /> : ''}</div>
+      <div>{isLoading && <Loader />}</div>
       <Layout title="즐겨찾기">
         {favoriteRegion &&
           favoriteRegion.length > 0 &&

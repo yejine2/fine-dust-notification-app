@@ -47,7 +47,7 @@ function Card({ data, isShowFavoriteRegionCard }) {
         {data.pm10Grade ? DUST_GRADE[data.pm10Grade] : '알 수 없음 😓'}
       </S.CardValue>
       <S.CardDateText>
-        {data.dataTime ? `${data.dataTime} 기준` : ''}
+        {data.dataTime && `${data.dataTime} 기준`}
       </S.CardDateText>
     </S.CardContainer>
   )

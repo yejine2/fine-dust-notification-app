@@ -10,7 +10,7 @@ function MyRegion() {
 
   return (
     <>
-      <div>{isLoading ? <Loader /> : ''}</div>
+      <div>{isLoading && <Loader />}</div>
       <Layout title="내 지역보기">
         {myRegion && <Card data={myRegion} />}
       </Layout>

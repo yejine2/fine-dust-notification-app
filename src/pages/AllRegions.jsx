@@ -15,7 +15,7 @@ function AllRegions() {
 
   return (
     <>
-      <div>{isLoading ? <Loader /> : ''}</div>
+      <div>{isLoading && <Loader />}</div>
       <Layout title="전체 시도보기">
         {dustDataList &&
           dustDataList.length > 0 &&
