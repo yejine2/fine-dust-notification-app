@@ -28,14 +28,12 @@ const initialState = {
 export const fetchData = createAsyncThunk(
   'dust/fetchData',
   async (sidoName) => {
-    try {
-      const response = await axios.get(BASE_URL, {
-        params: { ...getParameters, sidoName },
-      })
-      return response.data['response']['body']['items']
-    } catch (error) {
-      console.log(error)
-    }
+    const response = await axios.get(BASE_URL, {
+      params: { ...getParameters, sidoName },
+    })
+    return response?.data?.response?.body?.items?.map((item) => {
+      return { ...item, isFavoriteRegion: false }
+    })
   },
 )
 
@@ -62,13 +60,16 @@ export const dustSlice = createSlice({
   },
   extraReducers: {
     [fetchData.pending]: (state) => {
-      return { ...state, isLoading: true }
+      state.dustDataList = null
+      state.isLoading = true
     },
     [fetchData.fulfilled]: (state, { payload }) => {
-      return { ...state, dustDataList: payload, isLoading: false }
+      state.dustDataList = payload
+      state.isLoading = false
     },
     [fetchData.rejected]: (state) => {
-      return { ...state, isLoading: false }
+      state.dustDataList = null
+      state.isLoading = false
     },
   },
 })
@@ -78,5 +79,7 @@ export const {
   favoriteRegionAddHandler,
   favoriteRegionRemoveHandler,
 } = dustSlice.actions
+
 export const getAlldustData = (state) => state.dust
+
 export const dustReducer = dustSlice.reducer
